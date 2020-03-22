@@ -1,0 +1,43 @@
+
+	<div class="container">
+		<div class="row">
+		    <div class="col-xs-3">
+				<h2>User info</h2>
+				<!--　↓設定した画像を表示-->
+				<%= attachment_image_tag user, :profile_image, :fill, 100, 100, format:'jpg',fallback: "no_image.jpg" %>
+				<table class= "table">
+
+					<tbody>
+						<tr></tr>
+						<tr>
+							<th>name</th>
+							<th class="profile-name">
+							<%= @user.name %>
+							</th>
+						</tr>
+						<tr>
+							<th>introduction</th>
+							<th class="introduction">
+							<%= @user.introduction %>
+							</th>
+						</tr>
+					</tbody>
+				</table>
+					<li class="row">
+						<% if @user.id == current_user.id %>
+					<p><%= link_to "", edit_user_path(@user),class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_14097" %></p>
+					    <% end %>
+					</li>
+					<h2>New book</h2>
+					<%= form_for(book, url:'/books') do |f| %>
+
+					<p>Title</p>
+					<%= f.text_field :title %>
+
+					<p>Body</p>
+					<%= f.text_area :body %>
+					<br>
+					<%= f.submit 'Create Book' %>
+
+					<% end %>
+		   	</div>

@@ -1,0 +1,14 @@
+<header class="navbar">
+	<div class="container">
+		<nav class="nav-left">
+			<span>Bookers</span>
+		</nav>
+		<nav class="nav-right">
+			<li class="Home"><%= link_to "Home", user_path(@user) %></li>
+			<li class="Users-index"><%= link_to "Users", users_path %></li>
+			<li class="Books-index"><%= link_to "Books", books_path %></li>
+			<li class="logout"></li><%= link_to "logout", destroy_user_session_path,method: :delete %></li>
+		</nav>
+	</div>
+		
+</header>

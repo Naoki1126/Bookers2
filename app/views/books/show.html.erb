@@ -1,0 +1,55 @@
+<div class=row>
+<%= render 'users/profile', user:@user, book:@book%>
+<p class="notice"><%= flash[:notice] %></p>
+
+ <div class="body">
+	<div class="col-xs-9">
+		<h2>Book detail</h2>
+		<table class="table">
+
+			
+		  <tbody>
+			<% if @books.user_id == current_user.id %>
+				<tr>
+					<td><%= link_to user_path(@user)do %>
+					<%= attachment_image_tag @user, :profile_image, size:'50x50', format:'jpg',fallback: "no_image.jpg" %>
+				   <% end %>
+				   <%= link_to @user.name, user_path(@user) %>
+
+				    </td>
+				    <td class=book_title>
+				        <%= @books.title %>
+				    </td>
+				    <td class=book_opinion>
+				    	<%= @books.body %>
+				    </td>
+				    <td>
+				    <%= link_to "Edit", edit_book_path(@books) %>
+					</td>
+					<td>
+					<%= link_to "Destroy",book_path(@books), method: :delete %>
+					</td> 
+				</tr>
+			<% else %>
+					<tr>
+					<td><%= link_to user_path(@user)do %>
+						<%= attachment_image_tag @user, :profile_image, size:'50x50', format:'jpg',fallback: "no_image.jpg" %>
+						<% end %>
+						<br>
+						<%= link_to @user.name, user_path(@user) %>
+				    </td>
+				    <td class=book_title>
+				        <%= @books.title %>
+				    </td>
+				    <td class=book_opinion>
+				    	<%= @books.body %>
+				    </td>
+					</tr>
+			<% end %>
+
+			</tbody>
+		</table>
+	</div>
+  </div>
+</div>
+
