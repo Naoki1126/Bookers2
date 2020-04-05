@@ -4,6 +4,7 @@
 			<h2>Users serch for"<%= @model %>"</h2>
 			<table class="table table-hover table-inverse">
 				<thead>
+					<% if @model == "user" %>
 					<tr>
 						<th>image</th>
 						<th>name</th>
@@ -12,6 +13,16 @@
 						<th></th>
 						<th></th>
 					</tr>
+					<% else %>
+					<tr>
+						<th>image</th>
+						<th>title</th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+					<% end %>
 				</thead>
 				<tbody>
 				<%  if @model == 'user' %>
