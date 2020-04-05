@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   	resource :favorites, only: [:create, :destroy]
   end
   
-  resources :users, only: [:show, :edit, :index, :update]
+  resources :users, only: [:show, :edit, :index, :update] 
   resources :relationships, only: [:create, :destroy]
   resources :homes, only: [:home]
-  
+  get '/search' => 'search#search'
   get 'users/:id/follows' => 'relationships#follows'
   get 'users/:id/followers' => 'relationships#followers'
   get 'home/about' => 'homes#about'
