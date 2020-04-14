@@ -1,2 +1,2 @@
-$("#js-table-comment").html("<%= j(render 'book_comments/comment_index',{ books:@book}) %>");
+$("#js-table-comment_<%= @book.id %>").html("<%= j(render 'book_comments/comment_index', books:@book ) %>");
 $("#book_comment_comment").val('')

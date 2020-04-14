@@ -1,11 +1,23 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthabl
   validates :name, length:{ in:2..20 }
   validates :introduction, length:{ maximum: 50}
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  include JpPrefecture
+  jp_prefecture :prefucture_code
+
+  def prefecture_name
+    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
+  end
+
+  def prefecture_name=(prefecture_name)
+    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
+  end
+
 
   has_many :books, dependent: :destroy
   has_many :book_comments, dependent: :destroy
@@ -15,6 +27,7 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverse_of_relationships, source: :user
   attachment :profile_image
+
 
   def follow(other_user)
     unless self == other_user

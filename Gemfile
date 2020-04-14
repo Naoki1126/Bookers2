@@ -69,6 +69,11 @@ gem "refile-mini_magick"
 gem 'bootstrap-sass' , '~> 3.3.6'
 gem 'jquery-rails'
 gem "jquery-rails"
+gem 'jp_prefecture'
+gem 'dotenv-rails'
+gem 'geocoder'
+gem 'kaminari','~>1.1.1'
+gem 'pry-byebug'
 
 group :test do
   gem 'capybara', '>=2.15'

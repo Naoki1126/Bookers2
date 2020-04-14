@@ -95,8 +95,31 @@
                 	<% end %>
                		 </tbody>
             	</table>
+
         	</div>
    		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<div id ="map">
+		<style>
+			#map{
+				height: 400px;
+				width: 400px%;
+			}
+		</style>
+		<script>
+            let mapInstance
+          
+            function initMap(){
+              mapInstance = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: -34.397, lng: 150.644},
+              zoom: 8
+              });
+             }
+        </script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap"　asynk defer></script>
 	</div>
 </div>
 
