@@ -23,7 +23,7 @@ private
 			Book.where("title LIKE ?","#{content}%")
 		end
 	end
-
+	
 
 
 

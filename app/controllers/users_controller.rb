@@ -34,6 +34,7 @@ class UsersController < ApplicationController
 
   def map
     results = Geocoder.serch(params[:address])
+  end
   
 
 

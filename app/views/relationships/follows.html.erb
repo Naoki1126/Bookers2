@@ -31,17 +31,11 @@
      				    <%= hidden_field_tag :follow_id, user.id %>
      				    
     			   	    <%= f.submit 'フォローを外す', class: "btn btn-primary" %>
-    			   
-
    					   <% end %>
 				  	   <% else %>
     			   	   <%= form_for(current_user.relationships.build) do |f| %>
    		               <%= hidden_field_tag :follow_id, user.id %>
-   		               
-
                        <%= f.submit 'フォローする', class: "btn btn-primary" %>
-                
-
    				       <% end %>
  				       <% end %>
  				       <% end %>
