@@ -71,7 +71,7 @@ gem 'jquery-rails'
 gem "jquery-rails"
 gem 'jp_prefecture'
 gem 'geocoder'
-gem 'kaminari','~>1.1.1'
+gem 'kaminari','~>1.2.1'
 gem 'pry-byebug'
 gem 'dotenv-rails'
 
